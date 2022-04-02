@@ -1,4 +1,5 @@
 const express = require("express");
+const res = require("express/lib/response");
 
 const server = express();
 
@@ -19,9 +20,10 @@ server.post("/lineapp", () => {
     console.log("Inside lineapp router:\n".repeat(50));
 
 
-
+    res.status(200).send({ message: "Message processed!" });
   } catch (err) {
     console.log("Something went wrong inside lineapp router", err);
+    res.status(404).send({ message: "Something went wrong!" });
   }
 })
 
