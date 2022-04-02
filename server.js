@@ -15,7 +15,7 @@ server.get("/", (req, res) => {
   }
 })
 
-server.post("/lineapp", () => {
+server.post("/lineapp", (req, res) => {
   try {
     console.log("Inside lineapp router:\n".repeat(50));
 
