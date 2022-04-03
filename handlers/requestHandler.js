@@ -13,7 +13,7 @@ const requestHandler = async (req) => {
         replyToken: req.body.events[0].replyToken,
         messages: [{
           type: "text",
-          text: "Hello, This is cool!"
+          text: req.body.events[0].message.text
         }]
       }
     });
