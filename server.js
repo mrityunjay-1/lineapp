@@ -1,5 +1,5 @@
 const express = require("express");
-const res = require("express/lib/response");
+const { lineAuthVerifier } = require("./middleware/auth");
 
 const server = express();
 
@@ -15,10 +15,11 @@ server.get("/", (req, res) => {
   }
 })
 
-server.post("/lineapp", (req, res) => {
-  try {
-    console.log("Inside lineapp router:\n".repeat(50));
 
+server.post("/lineapp", lineAuthVerifier, (req, res) => {
+  try {
+    console.log("Inside lineapp router:\n".repeat(50), req.body);
+    
 
     res.status(200).send({ message: "Message processed!" });
   } catch (err) {
