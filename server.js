@@ -1,5 +1,7 @@
 const express = require("express");
 const { lineAuthVerifier } = require("./middleware/auth");
+const requestHandler = require("./handlers/requestHandler");
+
 require("dotenv").config();
 
 const server = express();
@@ -19,7 +21,6 @@ server.get("/", (req, res) => {
 
 server.post("/lineapp", lineAuthVerifier, (req, res) => {
   try {
-    console.log(req);
     requestHandler(req.body);
     res.status(200).send({ message: "Message processed!" });
   } catch (err) {
