@@ -1,5 +1,6 @@
 const express = require("express");
 const { lineAuthVerifier } = require("./middleware/auth");
+require("dotenv").config();
 
 const server = express();
 
@@ -18,9 +19,8 @@ server.get("/", (req, res) => {
 
 server.post("/lineapp", lineAuthVerifier, (req, res) => {
   try {
-    console.log("Inside lineapp router:\n".repeat(50), req.body);
-    
-
+    // console.log("Inside lineapp router:\n".repeat(50), req.body);
+    requestHandler(req.body);
     res.status(200).send({ message: "Message processed!" });
   } catch (err) {
     console.log("Something went wrong inside lineapp router", err);
@@ -28,7 +28,7 @@ server.post("/lineapp", lineAuthVerifier, (req, res) => {
   }
 })
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT;
 
 server.listen(port, () => {
   console.log("server is up and running on port:8080");
