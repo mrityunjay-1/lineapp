@@ -1,4 +1,4 @@
 ## Getting started sample application for line chatbot
 
-### want to test the bot ?
-- search channel in line with this ID - @577tfzzg (This is a sample application which will only repond with -> Hello, this is cool!)
+### Want to test the BOT ?
+- Search channel in line application with this ID -> @577tfzzg (This is a sample application which will only respond with -> Hello, This is cool!)
