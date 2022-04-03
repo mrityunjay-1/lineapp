@@ -21,7 +21,7 @@ server.get("/", (req, res) => {
 
 server.post("/lineapp", lineAuthVerifier, (req, res) => {
   try {
-    requestHandler(req.body);
+    requestHandler(req);
     res.status(200).send({ message: "Message processed!" });
   } catch (err) {
     console.log("Something went wrong inside lineapp router", err);
