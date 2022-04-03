@@ -1,10 +1,8 @@
 const axios = require("axios");
 
-const requestHandler = (req) => {
+const requestHandler = async (req) => {
   try{
-    console.log("inside request handler for line webhook calling", data.toString());
-
-    const res = axios({
+    const res = await axios({
       url: "https://api.line.me/v2/bot/message/reply",
       method: "POST",
       headers: {
@@ -18,7 +16,7 @@ const requestHandler = (req) => {
           text: "Hello, This is cool!"
         }
       }
-    })
+    });
 
   }catch(err){
     console.log("Error ocurred in requestHandler", err);
