@@ -1,7 +1,6 @@
 const crypto = require("crypto");
 
 const lineAuthVerifier = (req, res, next) => {
-  console.log(JSON.stringify(req));
   const line_sign = req.headers['x-line-signature'];
 
   const channelSecret = process.env.lineChannelSecret;
