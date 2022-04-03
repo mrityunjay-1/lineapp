@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 const requestHandler = async (req) => {
-  try{
+  try {
     const res = await axios({
       url: "https://api.line.me/v2/bot/message/reply",
       method: "POST",
@@ -18,7 +18,7 @@ const requestHandler = async (req) => {
       }
     });
 
-  }catch(err){
+  } catch (err) {
     console.log("Error ocurred in requestHandler", err);
   }
 }
