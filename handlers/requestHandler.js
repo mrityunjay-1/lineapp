@@ -11,10 +11,10 @@ const requestHandler = async (req) => {
       },
       data: {
         replyToken: req.body.events.replyToken,
-        messages: {
+        messages: [{
           type: "text",
           text: "Hello, This is cool!"
-        }
+        }]
       }
     });
 
