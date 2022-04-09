@@ -8,7 +8,16 @@
 
 <body>
   <div class="main-container">
-    <h1 class="main-container-header">This is sooo... cool!</h1>
+    <h1 class="main-container-header">
+
+      {{#if text}}
+        {{text}}
+      {{else}}
+        This is sooo... cool!
+      {{/if}}
+
+    </h1>
+
   </div>
 </body>
 

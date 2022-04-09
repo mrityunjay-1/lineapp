@@ -32,6 +32,14 @@ server.get("/", (req, res) => {
   }
 })
 
+server.get("/:text", (req, res) => {
+  try {
+    res.render('index', { text: req.params.text });
+  } catch (err) {
+    console.log("Something went wrong inside /:text router", err);
+  }
+})
+
 
 server.post("/lineapp", lineAuthVerifier, (req, res) => {
   try {
