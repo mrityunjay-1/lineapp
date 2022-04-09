@@ -1,6 +1,8 @@
 const express = require("express");
 const { lineAuthVerifier } = require("./middleware/auth");
 const requestHandler = require("./handlers/requestHandler");
+const hbs = require("hbs");
+const path = require("path");
 
 require("dotenv").config();
 
@@ -9,10 +11,22 @@ const server = express();
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
+
+// configure templates for views and parials
+const publicDirectory = path.join(__dirname, "./public");
+const viewsDirectory = path.join(__dirname, "./public/templates/views");
+const partialsDirectory = path.join(__dirname, "./public/templates/partials");
+
+server.use(express.static(publicDirectory));
+
+server.set('view engine', 'hbs');
+server.set('views', viewsDirectory);
+hbs.registerPartials(partialsDirectory);
+
+
 server.get("/", (req, res) => {
   try {
-    res.status(200).send({ message: "working" });
-
+    res.render('index');
   } catch (err) {
     console.log("Something went wrong inside root router", err);
   }
