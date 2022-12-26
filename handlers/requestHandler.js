@@ -3,7 +3,7 @@ const axios = require("axios");
 const requestHandler = async (req) => {
   try {
 
-    console.log("Body\n\n",repeat(10), req.body);
+    console.log("Body\n\n".repeat(10), req.body);
 
     const res = await axios({
       url: "https://api.line.me/v2/bot/message/reply",
